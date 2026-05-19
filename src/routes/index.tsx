@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Preloader } from "@/components/site/Preloader";
+import { IntroSplash } from "@/components/site/IntroSplash";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
@@ -70,6 +71,7 @@ function Index() {
   return (
     <>
       <Preloader />
+      <IntroSplash />
       <Navbar />
       <main className="overflow-x-hidden">
         <Hero />
