@@ -33,7 +33,11 @@ export function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3 group">
-            <span className="w-9 h-9 rounded-full bg-primary text-primary-foreground grid place-items-center font-display text-lg shadow-paper">V</span>
+            <img
+              src="/site/logo.png"
+              alt="Vasai Vikasini College of Visual Art logo"
+              className="h-10 md:h-12 w-auto drop-shadow-sm transition-transform group-hover:scale-105"
+            />
             <span className="hidden sm:flex flex-col leading-tight">
               <span className="font-display text-base md:text-lg text-foreground">Vasai Vikasini</span>
               <span className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-muted-foreground">College of Visual Art</span>
