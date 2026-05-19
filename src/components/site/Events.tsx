@@ -1,14 +1,24 @@
 import { Reveal, SectionTitle } from "./Reveal";
+import { motion } from "framer-motion";
 
-const events = [
-  "Annual Exhibition", "Annual Day", "Bal Chitrakala Spradha",
-  "State Art Competition", "Study Tour", "Monsoon Tour",
-  "College Outdoor", "Workshops", "Demonstrations",
-  "Teacher's Day", "Women's Self-Defence", "Dahi Handi Celebration",
-  "Independence Day", "Republic Day", "Sports Day", "Achievements",
+const events: { name: string; img: string }[] = [
+  { name: "Annual Exhibition",      img: "/site/event-2.jpeg" },
+  { name: "Annual Day",             img: "/site/event-1.jpeg" },
+  { name: "Bal Chitrakala Spradha", img: "/site/gallery-4.jpeg" },
+  { name: "State Art Competition",  img: "/site/gallery-5.jpeg" },
+  { name: "Study Tour",             img: "/site/campus-1.jpg" },
+  { name: "Monsoon Tour",           img: "/site/gallery-9.jpeg" },
+  { name: "College Outdoor",        img: "/site/gallery-6.jpeg" },
+  { name: "Workshops",              img: "/site/gallery-3.jpeg" },
+  { name: "Demonstrations",         img: "/site/gallery-10.jpeg" },
+  { name: "Teacher's Day",          img: "/site/event-3.jpeg" },
+  { name: "Women's Self-Defence",   img: "/site/gallery-7.jpeg" },
+  { name: "Dahi Handi Celebration", img: "/site/gallery-8.jpeg" },
+  { name: "Independence Day",       img: "/site/event-4.jpeg" },
+  { name: "Republic Day",           img: "/site/gallery-11.jpeg" },
+  { name: "Sports Day",             img: "/site/gallery-12.jpeg" },
+  { name: "Achievements",           img: "/site/student-life.jpeg" },
 ];
-
-const colors = ["var(--saffron)", "var(--ultramarine)", "var(--terracotta)", "var(--emerald-art)", "var(--maroon)", "var(--gold)"];
 
 export function Events() {
   return (
@@ -21,20 +31,26 @@ export function Events() {
         />
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {events.map((e, i) => (
-            <Reveal key={e} delay={(i % 4) * 0.05}>
-              <article
-                className="relative frame-card rounded-xl p-5 h-44 flex flex-col justify-between overflow-hidden group transition-transform hover:-translate-y-1"
+            <Reveal key={e.name} delay={(i % 4) * 0.05}>
+              <motion.article
+                whileHover={{ y: -6 }}
+                className="relative rounded-xl overflow-hidden h-56 group shadow-paper"
               >
-                <div
-                  className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full blur-2xl opacity-25 group-hover:opacity-50 transition-opacity"
-                  style={{ background: colors[i % colors.length] }}
+                <img
+                  src={e.img}
+                  alt={`${e.name} at Vasai Vikasini College of Visual Art`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                 />
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Annual</div>
-                  <h3 className="font-display text-xl mt-1 leading-tight">{e}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-5 text-paper">
+                  <div className="text-[10px] uppercase tracking-[0.22em] opacity-80">Annual</div>
+                  <h3 className="font-display text-2xl leading-tight mt-1 text-paper">{e.name}</h3>
+                  <a href="#gallery" className="mt-2 text-sm font-medium text-paper/90 underline-offset-4 hover:underline self-start">
+                    View moments →
+                  </a>
                 </div>
-                <a href="#gallery" className="text-sm font-medium text-primary self-start">View moments →</a>
-              </article>
+              </motion.article>
             </Reveal>
           ))}
         </div>
