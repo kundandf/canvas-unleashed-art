@@ -3,15 +3,18 @@ import { useEffect, useState } from "react";
 
 export function Preloader() {
   const [done, setDone] = useState(false);
+  const [wipe, setWipe] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setDone(true), 3200);
-    return () => clearTimeout(t);
+    const w = setTimeout(() => setWipe(true), 2400);
+    const t = setTimeout(() => setDone(true), 3600);
+    return () => { clearTimeout(t); clearTimeout(w); };
   }, []);
   return (
     <AnimatePresence>
       {!done && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.7 } }}
         >
