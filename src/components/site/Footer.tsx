@@ -1,6 +1,27 @@
 export function Footer() {
   return (
     <footer className="relative bg-ink text-paper">
+      {/* Paint eruption animation band */}
+      <div className="relative w-full overflow-hidden bg-paper" aria-hidden="true">
+        <video
+          className="block w-full h-[220px] md:h-[340px] lg:h-[420px] object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/site/paint-erupt-bottom.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-paper to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent" />
+        <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-14">
+          <div className="text-center px-6">
+            <p className="font-hand text-2xl md:text-3xl text-primary">A burst of colour, every single day.</p>
+            <h3 className="font-display text-3xl md:text-5xl text-foreground mt-1">Step into the studio.</h3>
+          </div>
+        </div>
+      </div>
       <div className="scribble-divider" />
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-14 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
