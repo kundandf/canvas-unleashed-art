@@ -14,9 +14,8 @@ export function Preloader() {
       {!done && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-          exit={{ opacity: 0, transition: { duration: 0.5 } }}
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.7 } }}
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
           {/* Watercolor background video */}
           <video
